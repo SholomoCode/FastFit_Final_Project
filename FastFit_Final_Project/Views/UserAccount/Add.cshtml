@@ -1,0 +1,36 @@
+﻿@model Fast_Fit_Final_Project.ViewModels.AddUserAccountViewModel;
+
+<h1>Sign Up Form</h1>
+@*
+@if (ViewBag.error != null)
+{
+    <p>@ViewBag.error</p>
+}*@
+
+<form method="post" action="/user">
+
+    <br>
+
+    <div class="form-group">
+        <label asp-for="UserName"></label>
+        <input asp-for="UserName" />
+        <span asp-validation-for="UserName"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" />
+        <span asp-validation-for="Email"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Password"></label>
+        <input asp-for="Password" type="password" />
+        <span asp-validation-for="Password"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="VerifyPassword"></label>
+        <input asp-for="VerifyPassword" type="password" />
+        <span asp-validation-for="VerifyPassword"></span>
+    </div>
+
+    <input type='submit' value='Submit'>
+</form>
