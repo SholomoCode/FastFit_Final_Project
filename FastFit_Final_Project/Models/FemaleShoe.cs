@@ -1,14 +1,41 @@
-﻿namespace Fast_Fit_Final_Project.Model
+﻿using System;
+
+namespace Fast_Fit_Final_Project.Model
 {
     public class FemaleShoe
     {
-        public string FShoeSize { get; set; }
+        public int Id { get; }
+        static private int nextId = 1;
+        public string Value { get; set; }
 
-        public FemaleShoe(string fShoeSize)
+        public FemaleShoe()
         {
-            FShoeSize = fShoeSize;
+            Id = nextId;
+            nextId++;
         }
 
-       
+        public FemaleShoe(string value) : this()
+        {
+            Value = value;
+
+        }
+
+        public override string ToString()
+        {
+            return Value;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is FemaleShoe field &&
+                   Id == field.Id;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Id);
+        }
+
+
     }
 }
