@@ -27,8 +27,8 @@ namespace Fast_Fit_Final_Project.Model
 
         public override bool Equals(object obj)
         {
-            return obj is FemaleShoe field &&
-                   Id == field.Id;
+            return obj is FemaleShoe female &&
+                    Id == female.Id;
         }
 
         public override int GetHashCode()
