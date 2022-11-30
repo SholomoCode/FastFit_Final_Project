@@ -1,25 +1,39 @@
-﻿using Fast_Fit_Final_Project.Models;
-using Fast_Fit_Final_Project.ViewModels;
-using System.Security.Cryptography.X509Certificates;
+﻿using System;
 
 namespace Fast_Fit_Final_Project.Model
 {
     public class MaleShoe
     {
-        public int MShoeSize { get; set; }
-       
+        public int Id { get; }
+        static private int nextId = 1;
 
-        public MaleShoe(int mShoeSize)
+        public string Value { get; set; }
+
+        public MaleShoe()
         {
-            MShoeSize = mShoeSize;
+            Id = nextId;
+            nextId++;
         }
 
-        /*public void ShoeSizeConverter(int mShoeSize)
+        public MaleShoe(string value) : this()
         {
-            if (mShoeSize == Country.Japan)
-            {
+            Value = value;
+        }
 
-            }
-        }*/
+        public override string ToString()
+        {
+            return Value;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is MaleShoe male &&
+                Id == male.Id;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Id);
+        }
     }
 }
