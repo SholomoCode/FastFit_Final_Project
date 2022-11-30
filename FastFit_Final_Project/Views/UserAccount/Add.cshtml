@@ -1,12 +1,16 @@
-﻿
-@model Fast_Fit_Final_Project.ViewModels.AddUserAccountViewModel;
+﻿@model Fast_Fit_Final_Project.ViewModels.AddUserAccountViewModel;
 
 <h1>Sign Up Form</h1>
+@*
 @if (ViewBag.error != null)
 {
     <p>@ViewBag.error</p>
-}
-<form asp-controller="UserAccount" asp-action="Add" method="post">
+}*@
+
+<form method="post" action="/user">
+
+    <br>
+
     <div class="form-group">
         <label asp-for="UserName"></label>
         <input asp-for="UserName" />
@@ -27,8 +31,6 @@
         <input asp-for="VerifyPassword" type="password" />
         <span asp-validation-for="VerifyPassword"></span>
     </div>
+
     <input type='submit' value='Submit'>
 </form>
-@*
-//  MAYBE THE USERACCOUNT INDEX SHOULD CONNECT TO THE ADD MEMBERS PAGE
-//kinda like the netflix select account tab *@
