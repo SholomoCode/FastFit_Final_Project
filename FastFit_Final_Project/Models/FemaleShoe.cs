@@ -2,7 +2,7 @@
 
 namespace Fast_Fit_Final_Project.Model
 {
-    public class FemaleShoe
+    public abstract class FemaleShoe
     {
         public int Id { get; }
         static private int nextId = 1;
@@ -35,7 +35,5 @@ namespace Fast_Fit_Final_Project.Model
         {
             return HashCode.Combine(Id);
         }
-
-
     }
 }

@@ -11,16 +11,13 @@ namespace Fast_Fit_Final_Project.Controllers
         {
             return View();
         }
-
         public IActionResult Add()
         {
             AddUserAccountViewModel userAccountViewModel = new AddUserAccountViewModel();
             return View(userAccountViewModel);
         }
-
         [HttpPost]
-        [Route("/user")]
-        public IActionResult SubmitAddUserForm(AddUserAccountViewModel addUserAccountViewModel)
+        public IActionResult Add(AddUserAccountViewModel addUserAccountViewModel)
         {
             if (ModelState.IsValid)
             {
@@ -30,11 +27,9 @@ namespace Fast_Fit_Final_Project.Controllers
                     Password = addUserAccountViewModel.Password,
                     Email = addUserAccountViewModel.Email,
                 };
-                return View("Index", user);
-
+                return Redirect("/UserAccount");
             }
-            return View("Add", addUserAccountViewModel);
-
+            return View(addUserAccountViewModel);
         }
 
 
